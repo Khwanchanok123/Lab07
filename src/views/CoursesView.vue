@@ -1,19 +1,31 @@
-<template>
+<template><v-app style = "background-color: #C8E6C9">
+  <v-main
+        style="
+          --v-layout-left: 50px;
+          --v-layout-right: 50px;
+          --v-layout-top: 60px;
+          --v-layout-bottom: 0px;
+        "
+        >
   <div style="background-color: #66BB6A">
     <h3><center>รายชื่อวิชาทั้งหมด</center></h3>
   </div>
-  <hr />
-  <table>
-    <tr>
-      <th><font color=“#311b92”>รหัสวิชา</font></th>
-      <th><font color=“#311b92”>ชื่อวิชา</font></th>
+  <br>
+  <v-table style = "background-color: #C8E6C9 ">
+    <tr style="text-align: left">
+      <th><font color=“#311b92”><center>รหัสวิชา</center></font></th>
+      <th><pre class ="tab2"> <font color=“#311b92”>                                      ชื่อวิชา</font></pre></th>
+      <th><pre class ="tab2"> <font color=“#311b92”>หน่วยกิต</font></pre></th>
     </tr>
     <tr v-for="(course, index) in courses" :key="index">
-      <td style="text-align: left">{{ course.course_id }}</td>
-     <font size="3.5"><a @click="showAlert(index)" style="padding-left: 3em;" href="#">    {{ course.course_name }}
+      <td style="text-align: left"><center>{{ course.course_id }}</center></td>
+     <font size="3.5"><a @click="showAlert(index)" style="padding-left: 3em;" href="#"><v-spacer></v-spacer> <v-spacer></v-spacer>          {{ course.course_name }}
       </a> </font>
+      <td>{{ course.credit }}</td>
     </tr>
-  </table>
+  </v-table>
+  </v-main>
+</v-app>
 </template>
 <script>
 import courses from "../json/cs_courses.json";

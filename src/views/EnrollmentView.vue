@@ -1,21 +1,33 @@
-<template>
-  <div>
-    <h3>ค้นหาวิชาที่ลงทะเบียน</h3>
-    <form @submit.prevent="addToBasket">
-      <input type="text" v-model="courseID" placeholder="รหัสวิชา" />
-      <button type="submit">ลงทะเบียน</button>
-    </form>
+<template><v-app style = "background-color: #C8E6C9">
+  <v-main
+        style="
+          --v-layout-left: 50px;
+          --v-layout-right: 50px;
+          --v-layout-top: 60px;
+          --v-layout-bottom: 0px;
+        "
+        ><v-card-title primary-title> ค้นหาวิชาที่ลงทะเบียน </v-card-title>
+    <v-form @submit.prevent="addToBasket">
+      <v-text-field
+        type="text"
+        v-model="courseID"
+        placeholder="รหัสวิชา"
+      ></v-text-field><v-spacer></v-spacer>
+      <v-spacer></v-spacer><v-btn type="submit">ลงทะเบียน</v-btn><v-spacer></v-spacer><v-spacer></v-spacer>
+    </v-form>
 
     <article v-if="(x = courseData.find((elem) => elem.course_id == courseID))">
-      <div class="border background-color: #66BB6A">
-        <div style="background-color: #66BB6A">
+      <div class="border background-color: #E6EE9C">
+        <div style="background-color: #E6EE9C">
         
         <p>
           <b>รหัสวิชา : </b> <span>{{ x.course_id }}</span>
         </p>
+        <br>
         <p>
           <b>ชื่อวิชา : </b> <span>{{ x.course_name }}</span>
         </p>
+        <br>
         <p>
           <b>หน่วยกิต : </b><span>{{ x.credit }}</span>
         </p>
@@ -23,30 +35,38 @@
       </div>
     </article>
     <article v-else>
+      <br>
       <p>ไม่พบผลการค้นหา</p>
     </article>
 
     <hr />
     <div align="center">
+      <br>
       <h3><font color=“#311b92”>ตะกร้า</font></h3>
+      <br>
       <table>
         <thead>
           <th>รหัสวิชา</th>
           <th>ชื่อวิชา</th>
           <th>หน่วยกิต</th>
         </thead>
+        <br>
         <tbody>
           <tr v-for="(course, index) in courseInfo" :key="index">
             <td>{{ course.course_id }}</td>
             <td>{{ course.course_name }}</td>
             <td>{{ course.credit }}</td>
-            <td><button @click="removeFromBasket(index)">ลบ</button></td>
+            <td><v-btn color = "error"><button @click="removeFromBasket(index)">ลบ</button></v-btn></td>
           </tr>
         </tbody>
       </table>
+      <br>
+      <v-btn color = "success">
       <button @click="enrollCourse">ยืนยันการลงทะเบียน</button>
+    </v-btn>
     </div>
-  </div>
+</v-main>
+</v-app>
 </template>
 <script setup>
 import { ref } from "vue";
@@ -88,8 +108,10 @@ function enrollCourse() {
 <style scoped>
 .border {
   margin: 20px auto;
-  padding: 0.5em;
+  padding: 1em;
   border: 3px solid #2E7D32
+  border-radius 10px;
+  border-color: coral;
   ;
 }
 </style>

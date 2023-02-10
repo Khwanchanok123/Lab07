@@ -190,12 +190,12 @@
     "credit": "6 (ปฏิบัติไม่น้อยกว่า 16 สัปดาห์)"
   },
   {
-    "course_id": null,
+    "course_id": "-",
     "course_name": "วิชาเลือกเสรี วิชาที่ 1",
     "credit": "3 ( - - )"
   },
   {
-    "course_id": null,
+    "course_id": "-",
     "course_name": "วิชาเลือกเสรี วิชาที่ 2",
     "credit": "3 ( - - )"
   }

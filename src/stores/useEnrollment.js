@@ -8,5 +8,8 @@ export const useEnrollment = defineStore("enrollment", () => {
   function storeState(state) {
     enrollment.value.push(state);
   }
-  return { enrollment, getState, storeState };
+  function removeState(index) {
+  enrollment.value.splice(index, 1)
+}
+  return { enrollment, getState, storeState, removeState };
 });
